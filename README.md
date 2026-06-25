@@ -1,51 +1,44 @@
-# 📚 Local RAG AI Assistant
+# 📚 AI PDF Assistant (Local RAG)
 
-A conversational Retrieval-Augmented Generation (RAG) assistant built using Streamlit, Ollama, and ChromaDB.
+A local Retrieval-Augmented Generation (RAG) assistant built using Streamlit, Ollama, and ChromaDB.
 
-The application allows users to upload PDF documents, ask questions, retrieve relevant context, and generate answers with source attribution.
-
----
-
-## Features
-
-✅ PDF Upload
-
-✅ Text Chunking
-
-✅ Embedding Generation
-
-✅ ChromaDB Vector Storage
-
-✅ Conversational Memory
-
-✅ Query Rewriting
-
-✅ Multi-PDF Search
-
-✅ Retrieval Thresholding
-
-✅ Hallucination Prevention
-
-✅ Source Attribution
-
-✅ Retrieval Metrics Dashboard
+The application allows users to upload PDF documents, ask questions, retrieve relevant context from the documents, and generate grounded answers with source attribution.
 
 ---
 
-## Tech Stack
+## 🚀 Features
 
-- Python
-- Streamlit
-- Ollama
-- ChromaDB
-- PyPDF2
+* PDF Upload and Processing
+* Automatic Text Chunking
+* Embedding Generation
+* ChromaDB Vector Database
+* Conversational Memory
+* Query Rewriting
+* Multi-PDF Retrieval
+* Retrieval Thresholding
+* Hallucination Prevention
+* Source Attribution
+* Retrieval Metrics Dashboard
+* Evaluation Pipeline
 
 ---
 
-## Project Structure
+## 🛠 Tech Stack
+
+| Technology | Purpose         |
+| ---------- | --------------- |
+| Python     | Backend         |
+| Streamlit  | User Interface  |
+| Ollama     | Local LLM       |
+| ChromaDB   | Vector Database |
+| PyPDF2     | PDF Extraction  |
+
+---
+
+## 📂 Project Structure
 
 ```text
-local-rag-ai-assistant/
+ai-pdf-assistant/
 │
 ├── app.py
 ├── config.py
@@ -54,49 +47,57 @@ local-rag-ai-assistant/
 ├── data/
 ├── evaluation/
 ├── experiments/
+├── screenshots/
+└── README.md
 ```
 
 ---
 
-## Architecture
+## 🏗 Architecture
 
+```text
 PDF
-↓
+ ↓
 Text Extraction
-↓
+ ↓
 Chunking
-↓
+ ↓
 Embeddings
-↓
+ ↓
 ChromaDB
 
 Question
-↓
+ ↓
 Query Rewriting
-↓
+ ↓
 Retriever
-↓
+ ↓
 Threshold Check
-↓
+ ↓
 Phi3
-↓
+ ↓
 Answer + Sources
+```
 
 ---
 
-## Installation
+## ⚙ Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/1-aditya-rawat/ai-pdf-assistant.git
 
-cd local-rag-ai-assistant
+cd ai-pdf-assistant
+
+python -m venv .venv
+
+.venv\Scripts\activate
 
 pip install -r requirements.txt
 ```
 
 ---
 
-## Run
+## ▶ Running the Application
 
 ```bash
 streamlit run app.py
@@ -104,22 +105,39 @@ streamlit run app.py
 
 ---
 
+## 📈 Retrieval Metrics
+
+The application tracks:
+
+* Average retrieval distance
+* Best retrieval distance
+* Worst retrieval distance
+* Success rate
+* Failed queries
+
+---
+
+## 🔮 Future Improvements
+
+* Hybrid Search
+* Re-ranking
+* Cloud Deployment
+* Web Search Integration
+* Better Evaluation Metrics
+* Multiple LLM Support
+
+---
+
+## 📝 Resume Description
+
+Developed a local RAG-based AI assistant using Ollama, ChromaDB, and Streamlit with conversational memory, retrieval evaluation, source attribution, and hallucination prevention.
+
 ## Screenshots
 
-(Add screenshots here)
+### Upload Interface
 
----
+![Upload](screenshots/Screenshot%20(480).png)
 
-## Future Improvements
+### Generated Answer
 
-- Hybrid Search
-- Re-ranking
-- Web Search Integration
-- Better Evaluation Metrics
-- Cloud Deployment
-
----
-
-## Resume Bullet
-
-Developed a local RAG-based AI assistant using Ollama, ChromaDB, and Streamlit with conversational memory, metadata filtering, retrieval evaluation, source attribution, and hallucination prevention.
+![Answer](screenshots/Screenshot%20(482).png)
