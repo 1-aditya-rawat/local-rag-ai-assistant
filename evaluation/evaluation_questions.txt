@@ -1,0 +1,11 @@
+What is a string in Python?
+What does the len() function do?
+What are f-strings in Python?
+What is a docstring?
+What is the difference between a list and a string?
+
+    What is the main perspective used in this machine learning book?
+What background knowledge does the book recommend before studying machine learning?
+Which chapters are considered the fundamental chapters?
+What topics are covered in Chapter 6?
+What is discussed in Chapter 12?

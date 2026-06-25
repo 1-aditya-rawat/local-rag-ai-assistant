@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+
+chroma_db/
+data/chroma_db/
+
+data/chat.txt
+data/retrieval_logs.txt
+
+*.pyc
+*.pyo
+
+.vscode/
+.idea/
