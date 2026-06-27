@@ -1,0 +1,9 @@
+Question: What is Machine Learning ?
+
+Answer:
+Machine learning involves extracting knowledge from data and falls at the intersection of statistics, artificial intelligence, and computer science. It's also known as predictive analytics or statistical learning. The techniques have become increasingly popular in various aspects of everyday life due to their ability to provide personalized recommendations based on user behavior and preferences.
+
+Source: mlTesting2.pdf
+Distance: 194.53
+-----------------------------
+

@@ -16,6 +16,10 @@ if "failed_queries" not in st.session_state:
 if "successful_queries" not in st.session_state:
     st.session_state.successful_queries = 0
 
+#~~~~~~~~~~~~~~~ Export Storage ~~~~~~~~~~~~~~~~~~~
+if "chat_exports" not in st.session_state:
+    st.session_state.chat_exports = []
+
 st.set_page_config(page_title="AI PDF Assistant")
 
 st.sidebar.title("Database Stats")
@@ -62,18 +66,41 @@ if st.sidebar.button("Clear Chat"):
     st.rerun()
 
 # ~~~~~~~~~~~ Chat Export Button ~~~~~~~~~~~~~
+# if st.sidebar.button("Export Chat"):
+
+#     chat_text = ""
+
+#     for msg in st.session_state.messages:
+#         chat_text += (
+#             f"{msg['role']}: "
+#             f"{msg['content']}\n\n"
+#         )
+
+#     with open("data/chat.txt", "w", encoding="utf-8") as f:
+#         f.write(chat_text)
+
+#     st.sidebar.success("Chat exported!")
+
 if st.sidebar.button("Export Chat"):
 
-    chat_text = ""
+    export_text = ""
 
-    for msg in st.session_state.messages:
-        chat_text += (
-            f"{msg['role']}: "
-            f"{msg['content']}\n\n"
+    for chat in st.session_state.chat_exports:
+
+        export_text += (
+            f"Question: {chat['question']}\n\n"
+            f"Answer:\n{chat['answer']}\n\n"
+            f"Source: {chat['source']}\n"
+            f"Distance: {chat['distance']:.2f}\n"
+            "-----------------------------\n\n"
         )
 
-    with open("data/chat.txt    ", "w", encoding="utf-8") as f:
-        f.write(chat_text)
+    with open(
+        "data/chat_export.txt",
+        "w",
+        encoding="utf-8"
+    ) as f:
+        f.write(export_text)
 
     st.sidebar.success("Chat exported!")
 
@@ -108,7 +135,7 @@ threshold = st.sidebar.slider(
     "Retrieval Threshold",
     200,
     600,
-    350
+    DEFAULT_THRESHOLD
 )
 #~~~~~~~~~~~~~~~~~ Success Rate  ~~~~~~~~~~~~~~~~~~~~~~~~ 
 total_queries = (
@@ -268,6 +295,13 @@ if question:
         "question" : question,
         "distance" : best_distance,
         "source" : source
+    })
+# ~~~~~~~~~~~ Chat Exports ~~~~~~~~~~~~
+    st.session_state.chat_exports.append({
+    "question": question,
+    "answer": answer,
+    "source": source,
+    "distance": best_distance
     })
 
     st.subheader("Answer")
